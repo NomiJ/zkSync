@@ -4,8 +4,8 @@
     const utils = require('./utils')
     const SLEEP_INTERVAL = process.env.SLEEP_INTERVAL || 5000
 
-    const zkSyncProvider = await utils.getZkSyncProvider(zksync, process.env.NETWORK_NAME)
-    const ethersProvider = await utils.getEthereumProvider(ethers, process.env.NETWORK_NAME)
+    const zkSyncProvider = await utils.getZkSyncProvider(zksync, process.env.NETWORK_NAME || 'rinkeby')
+    const ethersProvider = await utils.getEthereumProvider(ethers, process.env.NETWORK_NAME || 'rinkeby')
 
     const bobRinkebyWallet = new ethers.Wallet(process.env.BOB_PRIVATE_KEY, ethersProvider)
     console.log(`Bob's Rinkeby address is: ${bobRinkebyWallet.address}`)

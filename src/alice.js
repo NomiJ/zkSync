@@ -7,8 +7,8 @@
     const amountToTransfer = '0.02'
     const amountToWithdraw = '0.002'
 
-    const zkSyncProvider = await utils.getZkSyncProvider(zksync, process.env.NETWORK_NAME)
-    const ethersProvider = await utils.getEthereumProvider(ethers, process.env.NETWORK_NAME)
+    const zkSyncProvider = await utils.getZkSyncProvider(zksync, process.env.NETWORK_NAME || 'rinkeby')
+    const ethersProvider = await utils.getEthereumProvider(ethers, process.env.NETWORK_NAME || 'rinkeby')
     console.log('Creating a new Rinkeby wallet for Alice')
     const aliceRinkebyWallet = new ethers.Wallet(process.env.ALICE_PRIVATE_KEY, ethersProvider) // Account #78
     console.log(`Alice's Rinkeby address is: ${aliceRinkebyWallet.address}`)
